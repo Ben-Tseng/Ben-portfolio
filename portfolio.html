@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ben Tseng Portfolio</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#0f172a;
+  color:white;
+}
+
+header{
+  text-align:center;
+  padding:60px 20px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  background:linear-gradient(135deg,#0f172a,#020617);
+}
+
+h1{margin:0;font-size:40px}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.featured{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:30px;
+  background:#020617;
+  border-radius:18px;
+  padding:25px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+iframe{
+  width:100%;
+  height:420px;
+  border:none;
+  border-radius:10px;
+  background:white;
+}
+
+.button{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 18px;
+  background:#22d3ee;
+  color:black;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.section-heading{
+  margin-top:70px;
+  margin-bottom:10px;
+}
+
+.section-intro{
+  margin:0 0 28px;
+  color:#94a3b8;
+  line-height:1.7;
+}
+
+.section-intro a{
+  color:#67e8f9;
+  text-decoration:none;
+}
+
+.section-intro a:hover{
+  text-decoration:underline;
+}
+
+.demo-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:30px;
+}
+
+.live-card{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  background:#020617;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.live-preview{
+  height:310px;
+  border-radius:0;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.live-card .card-content{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+}
+
+.live-card p{
+  color:#cbd5e1;
+  line-height:1.65;
+}
+
+.project-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:auto;
+  padding-top:8px;
+}
+
+.project-links .button,
+.project-links .open-btn{
+  margin-top:15px;
+}
+
+.projects{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.card{
+  display:flex;
+  flex-direction:column;
+  background:#020617;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.card-media{
+  position:relative;
+  background:#111827;
+}
+
+.card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  display:block;
+}
+
+.card-content{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  padding:20px;
+}
+
+.card h3{margin-top:0}
+
+.card p{
+  color:#cbd5e1;
+  line-height:1.65;
+}
+
+.extension-placeholder{
+  height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#164e63,#0f172a 60%,#312e81);
+  color:#cffafe;
+  font-size:64px;
+  font-weight:800;
+  letter-spacing:-4px;
+}
+
+.status-badge{
+  position:absolute;
+  top:14px;
+  right:14px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(2,6,23,0.86);
+  color:#67e8f9;
+  border:1px solid rgba(103,232,249,0.45);
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+
+.open-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 16px;
+  background:white;
+  color:black;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.extension-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:auto;
+  padding-top:10px;
+}
+
+.extension-actions .open-btn{
+  margin-top:10px;
+}
+
+.store-btn{
+  background:#22d3ee;
+}
+
+footer{
+  margin-top:80px;
+  text-align:center;
+  padding:40px;
+  color:#94a3b8;
+  border-top:1px dashed rgba(255,255,255,0.2);
+}
+
+@media(max-width:900px){
+  .featured{grid-template-columns:1fr}
+  .demo-grid{grid-template-columns:1fr}
+  .projects{grid-template-columns:1fr}
+}
+
+@media(max-width:600px){
+  header{padding:44px 20px}
+  h1{font-size:34px}
+  .container{padding:32px 16px}
+  iframe{height:340px}
+  .live-preview{height:280px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Ben Tseng</h1>
+<p>Portfolio</p>
+</header>
+
+<div class="container">
+
+<h2>Featured Project</h2>
+
+<div class="featured">
+
+<iframe src="https://world-time-zone-lite-u4j5.vercel.app/"></iframe>
+
+<div>
+<h3>World Time Zone Lite</h3>
+<p>
+A lightweight world time comparison tool with multi-city timelines, date switching, and real-time updates.
+</p>
+
+<a class="button" href="https://world-time-zone-lite-u4j5.vercel.app/" target="_blank">Open Live Project</a>
+</div>
+
+</div>
+
+<h2 class="section-heading">Live Demos</h2>
+<p class="section-intro">Explore these projects directly below, or open any demo in a new tab for the full experience.</p>
+
+<div class="demo-grid">
+
+<article class="live-card">
+<iframe class="live-preview" src="https://gentle-healing-phi.vercel.app/" title="Gentle Healing live demo" loading="lazy"></iframe>
+<div class="card-content">
+<h3>Gentle Healing</h3>
+<p>A holistic health experience combining Eastern dietary therapy and massage with modern science for lasting mind-body balance.</p>
+<div class="project-links">
+<a class="button" href="https://gentle-healing-phi.vercel.app/" target="_blank" rel="noopener noreferrer">Open Live Demo</a>
+</div>
+</div>
+</article>
+
+<article class="live-card">
+<iframe class="live-preview" src="https://ben-tseng.github.io/MacroSignal/" title="MacroSignal live demo" loading="lazy"></iframe>
+<div class="card-content">
+<h3>MacroSignal</h3>
+<p>A real-time U.S. inflation risk monitor built on Lee Kuan Yew's macroeconomic framework and powered by FRED data.</p>
+<div class="project-links">
+<a class="button" href="https://ben-tseng.github.io/MacroSignal/" target="_blank" rel="noopener noreferrer">Open Live Demo</a>
+</div>
+</div>
+</article>
+
+<article class="live-card">
+<iframe class="live-preview" src="https://typing-adventure-chi.vercel.app/" title="Typing Adventure live demo" loading="lazy"></iframe>
+<div class="card-content">
+<h3>Typing Adventure</h3>
+<p>A game-based typing practice experience that turns learning letters and improving keyboard speed into an adventure.</p>
+<div class="project-links">
+<a class="button" href="https://typing-adventure-chi.vercel.app/" target="_blank" rel="noopener noreferrer">Open Live Demo</a>
+</div>
+</div>
+</article>
+
+</div>
+
+<h2 class="section-heading">Browser Extension Demos</h2>
+<p class="section-intro">Published browser extensions and open-source tools, with demos and official store links where available. <a href="https://addons.mozilla.org/en-US/firefox/user/19631087/" target="_blank" rel="noopener noreferrer">View all 11 Firefox add-ons by Ben</a>.</p>
+
+<div class="projects">
+
+<div class="card">
+<div class="card-media">
+<img src="https://raw.githubusercontent.com/Ben-Tseng/URL-replacer/main/Demo.gif" alt="URL Replacer Demo GIF" loading="lazy">
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>Simple URL Replacer</h3>
+<p>A browser extension that converts selected text into a target URL and opens it in a new tab.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://addons.mozilla.org/en-US/firefox/addon/simple-url-replacer/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-media">
+<img src="https://raw.githubusercontent.com/Ben-Tseng/URL-Extractor/main/Demo_URL_Extract.gif" alt="URL Extractor Demo GIF" loading="lazy">
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>Simple URL Extractor</h3>
+<p>Extract URLs from selected text and quickly open one or multiple links.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://chromewebstore.google.com/detail/simple-url-extractor/ohpfhjekiacmjkjbdmmicpkkkdpdjeig" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+<a class="open-btn store-btn" href="https://addons.mozilla.org/en-US/firefox/addon/simple-url-extractor/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-media">
+<img src="https://raw.githubusercontent.com/Ben-Tseng/Editable-Template-Insert-Tree/main/Demo_TemplateTree.gif" alt="TemplateTree Demo GIF" loading="lazy">
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>TemplateTree</h3>
+<p>Manage reusable text templates in a tree and insert them into web forms from the right-click menu.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://chromewebstore.google.com/detail/templatetree/lgnjggegapjlkoaadecccmlahpppbjdd" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+<a class="open-btn store-btn" href="https://addons.mozilla.org/zh-TW/firefox/addon/templatetree/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-media">
+<img src="https://raw.githubusercontent.com/Ben-Tseng/Keyword-Reminder/main/Demo_Keyword_Reminder.gif" alt="Keyword Reminder Demo GIF" loading="lazy">
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>Keyword Reminder</h3>
+<p>Create local keyword-to-message rules and show matching reminders when text is selected on a webpage.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://chromewebstore.google.com/detail/%E5%85%B3%E9%94%AE%E8%AF%8D%E6%8F%90%E7%A4%BA%E5%99%A8/pekbkkgfmmdffkcimpmnineecafaaldd" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+<a class="open-btn store-btn" href="https://addons.mozilla.org/en-US/firefox/addon/keyword-reminder/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-media">
+<img src="https://raw.githubusercontent.com/Ben-Tseng/The-simplest-OCR/main/The%20simplest%20OCR%20mid.gif" alt="The Simplest OCR Demo GIF" loading="lazy">
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>Simple OCR</h3>
+<p>Select an area of a webpage and recognize numbers and uppercase letters directly in the browser.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://chromewebstore.google.com/detail/%E6%9E%81%E7%AE%80ocr/mgcefmpadhffnppnknghdkeliidnpmnm" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+<a class="open-btn store-btn" href="https://addons.mozilla.org/en-US/firefox/addon/simple-ocr/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-media">
+<img src="https://raw.githubusercontent.com/Ben-Tseng/A-click/main/Demo%20for%20A_click.gif" alt="Auto Select First Demo GIF" loading="lazy">
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>A Click / Auto Select First</h3>
+<p>Automatically select the first checkbox or radio option in each group, including forms inside iframes.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://chromewebstore.google.com/detail/auto-select-first/pngimbifkcibcinlegmnehcajnhhajkm" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+<a class="open-btn store-btn" href="https://addons.mozilla.org/en-US/firefox/addon/a-click/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-media">
+<img src="https://raw.githubusercontent.com/Ben-Tseng/SIV-ID-Verification/main/tool%20show.gif" alt="Lightweight KYC Validator Demo GIF" loading="lazy">
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>SIV ID Verificator</h3>
+<p>Offline validation assistance for passport MRZ, Hong Kong ID, Taiwan ID, and mainland China ID formats.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://chromewebstore.google.com/detail/lightweight-kyc-validator/ojmejpmlpghbdnkgafipadelkocajlgb" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+<a class="open-btn store-btn" href="https://addons.mozilla.org/en-US/firefox/addon/siv-id-verificator/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-media">
+<img src="https://raw.githubusercontent.com/Ben-Tseng/Trim-copy/main/Trim_copy_Demo.gif" alt="Trim Copy Demo GIF" loading="lazy">
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>Trim Copy</h3>
+<p>Copy selected text while automatically removing leading and trailing whitespace.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://addons.mozilla.org/en-US/firefox/addon/trim-copy/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-media">
+<img src="https://raw.githubusercontent.com/Ben-Tseng/URL-replacer/main/Pro%20Firefox%20Version/128.png" alt="URL Replacer Pro icon" loading="lazy">
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>URL Replacer Pro</h3>
+<p>Replace one token across up to 10 URL templates and open all generated results in new tabs.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://addons.mozilla.org/en-US/firefox/addon/url-replacer-pro/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-media">
+<div class="extension-placeholder" aria-hidden="true"><span>MM</span></div>
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>Simple Mind Map</h3>
+<p>A minimal editable mind map with notes, image thumbnails, and automatic local saving.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://chromewebstore.google.com/detail/%E6%9E%81%E7%AE%80%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/cehdhiebblbankbhbpcnhpeobbkdbelo" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+<a class="open-btn store-btn" href="https://addons.mozilla.org/en-US/firefox/addon/simple-mind-map/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-media">
+<div class="extension-placeholder" aria-hidden="true"><span>TR</span></div>
+<span class="status-badge">Published</span>
+</div>
+<div class="card-content">
+<h3>Cross-Tab Keyword Clicker</h3>
+<p>Scan tabs for keywords and execute matching click rules, including elements inside iframes.</p>
+<div class="extension-actions">
+<a class="open-btn store-btn" href="https://addons.mozilla.org/en-US/firefox/addon/cross-tab-keyword-clicker/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+More projects on <a href="https://github.com/Ben-Tseng" target="_blank" rel="noopener noreferrer" style="color:#67e8f9">GitHub</a>.
+</footer>
+
+</body>
+</html>
