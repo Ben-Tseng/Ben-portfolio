@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bin Zeng (Ben) — independent researcher and developer working on trustworthy AI, multi-agent systems, and decision-making under uncertainty.">
+<title>Bin Zeng (Ben) — Research &amp; Software</title>
+
+<style>
+:root{
+  --ink:#e8eef6;
+  --muted:#9eafc3;
+  --navy:#07111f;
+  --navy-2:#0b1728;
+  --panel:#0e1d31;
+  --panel-2:#12243a;
+  --line:rgba(158,175,195,0.18);
+  --cyan:#62d8e8;
+  --cyan-dark:#0f889b;
+  --gold:#e5b95c;
+  --green:#74d4a0;
+  --shadow:0 24px 60px rgba(0,0,0,0.28);
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 85% 4%,rgba(23,139,160,0.18),transparent 28rem),
+    radial-gradient(circle at 8% 34%,rgba(58,77,128,0.15),transparent 30rem),
+    var(--navy);
+  color:var(--ink);
+  line-height:1.65;
+}
+
+a{color:inherit}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  border-bottom:1px solid var(--line);
+  background:rgba(7,17,31,0.88);
+  backdrop-filter:blur(16px);
+}
+
+.nav{
+  max-width:1180px;
+  margin:auto;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.brand{
+  font-weight:800;
+  letter-spacing:-0.02em;
+  text-decoration:none;
+}
+
+.brand span{color:var(--cyan)}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.nav-links a{
+  color:var(--muted);
+  font-size:14px;
+  font-weight:650;
+  text-decoration:none;
+}
+
+.nav-links a:hover{color:var(--ink)}
+
+main{overflow:hidden}
+
+.section{
+  max-width:1180px;
+  margin:auto;
+  padding:96px 24px;
+}
+
+.section + .section{border-top:1px solid var(--line)}
+
+.eyebrow{
+  margin:0 0 14px;
+  color:var(--cyan);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+}
+
+h1,h2,h3{line-height:1.15;letter-spacing:-0.035em}
+
+h1{
+  margin:0;
+  max-width:760px;
+  font-size:clamp(48px,8vw,88px);
+}
+
+h2{
+  margin:0;
+  font-size:clamp(34px,5vw,56px);
+}
+
+h3{margin:0;font-size:23px}
+
+p{margin:0}
+
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(280px,0.65fr);
+  gap:72px;
+  align-items:start;
+  padding-top:108px;
+}
+
+.hero-copy .lead{
+  max-width:790px;
+  margin-top:30px;
+  color:#c5d2e0;
+  font-size:clamp(19px,2.2vw,24px);
+  line-height:1.55;
+}
+
+.hero-copy .lead strong{color:var(--ink)}
+
+.hero-actions,.link-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:11px 17px;
+  border:1px solid transparent;
+  border-radius:10px;
+  background:var(--cyan);
+  color:#041016;
+  font-size:14px;
+  font-weight:800;
+  text-decoration:none;
+  transition:transform .18s ease,background .18s ease,border-color .18s ease;
+}
+
+.button:hover{transform:translateY(-2px);background:#8ae5f0}
+
+.button.secondary{
+  border-color:var(--line);
+  background:rgba(255,255,255,0.04);
+  color:var(--ink);
+}
+
+.button.secondary:hover{border-color:rgba(98,216,232,0.55);background:rgba(98,216,232,0.08)}
+
+.hero-card{
+  position:relative;
+  overflow:hidden;
+  padding:26px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(18,36,58,0.96),rgba(8,22,38,0.96));
+  box-shadow:var(--shadow);
+}
+
+.hero-card:before{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  top:-90px;
+  right:-75px;
+  border-radius:50%;
+  background:rgba(98,216,232,0.12);
+}
+
+.monogram{
+  width:78px;
+  height:78px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(98,216,232,0.38);
+  border-radius:20px;
+  background:rgba(98,216,232,0.08);
+  color:var(--cyan);
+  font-size:26px;
+  font-weight:850;
+}
+
+.fact-list{
+  margin:28px 0 0;
+  padding:0;
+  list-style:none;
+}
+
+.fact-list li{
+  padding:15px 0;
+  border-top:1px solid var(--line);
+}
+
+.fact-list small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.fact-list span{display:block;margin-top:4px;font-weight:700}
+
+.fact-list .focus-list{
+  margin-top:4px;
+}
+
+.fact-list .focus-list span{
+  margin-top:6px;
+  line-height:1.45;
+}
+
+.subsection{margin-top:72px}
+
+.section-heading{
+  display:grid;
+  grid-template-columns:minmax(0,.75fr) minmax(300px,1fr);
+  gap:48px;
+  align-items:end;
+  margin-bottom:42px;
+}
+
+.section-heading p{
+  max-width:650px;
+  color:var(--muted);
+  font-size:18px;
+}
+
+.interest-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:14px;
+}
+
+.interest-card{
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(14,29,49,0.7);
+}
+
+.interest-card .number{
+  display:block;
+  margin-bottom:24px;
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:850;
+}
+
+.interest-card h3{font-size:17px;letter-spacing:-.015em}
+
+.interest-card p{margin-top:10px;color:var(--muted);font-size:14px}
+
+.background-panel{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:42px;
+  padding:34px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:linear-gradient(135deg,rgba(18,36,58,.8),rgba(11,23,40,.78));
+}
+
+.background-panel p{color:#c1cede}
+
+.direction-note{
+  padding-left:24px;
+  border-left:3px solid var(--gold);
+}
+
+.direction-note strong{display:block;margin-bottom:8px;color:var(--gold)}
+
+.research-list{display:grid;gap:22px}
+
+.research-card{
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:34px;
+  padding:30px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:rgba(14,29,49,.74);
+}
+
+.research-meta{color:var(--muted);font-size:13px}
+
+.status{
+  display:inline-flex;
+  margin-bottom:14px;
+  padding:6px 9px;
+  border:1px solid rgba(229,185,92,.4);
+  border-radius:999px;
+  background:rgba(229,185,92,.08);
+  color:#f0cc7c;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.research-body .project-title{
+  margin-top:7px;
+  color:#d7e5f2;
+  font-size:16px;
+  font-style:italic;
+  font-weight:650;
+}
+
+.research-body p{margin-top:15px;color:#b9c8d8}
+
+.research-body .caveat{color:var(--muted);font-size:14px}
+
+.publication{
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:34px;
+  margin-top:22px;
+  padding:28px 30px;
+  border-left:3px solid var(--cyan-dark);
+  background:rgba(9,24,41,.72);
+}
+
+.publication p{color:#bdcad9}
+
+.portfolio-intro{margin-bottom:42px}
+
+.case-study{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);
+  min-height:520px;
+  overflow:hidden;
+  border:1px solid rgba(98,216,232,.28);
+  border-radius:26px;
+  background:linear-gradient(140deg,#0d2035,#0b1728);
+  box-shadow:var(--shadow);
+}
+
+.case-preview{
+  min-height:520px;
+  width:100%;
+  border:0;
+  background:#fff;
+}
+
+.case-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:44px;
+}
+
+.case-label{
+  align-self:flex-start;
+  margin-bottom:22px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:rgba(116,212,160,.12);
+  color:var(--green);
+  font-size:12px;
+  font-weight:850;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.case-copy h3{font-size:clamp(34px,4vw,50px)}
+
+.case-copy p{margin-top:18px;color:#bccbdd;font-size:17px}
+
+.case-copy .case-note{color:var(--muted);font-size:14px}
+
+.portfolio-group{margin-top:76px}
+
+.group-heading{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:28px;
+}
+
+.group-heading h3{font-size:30px}
+
+.group-heading p{max-width:620px;color:var(--muted)}
+
+.demo-grid,.extension-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+
+.demo-card,.extension-card{
+  display:flex;
+  min-width:0;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(14,29,49,.8);
+}
+
+.demo-frame{
+  width:100%;
+  height:300px;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:#fff;
+}
+
+.demo-placeholder{
+  height:300px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border-bottom:1px solid var(--line);
+  background:
+    linear-gradient(135deg,rgba(98,216,232,.18),transparent 52%),
+    linear-gradient(145deg,#102a3d,#11192d);
+  color:var(--cyan);
+}
+
+.demo-placeholder strong{
+  font-size:62px;
+  letter-spacing:-.08em;
+}
+
+.demo-placeholder span{
+  color:#a8bdcf;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.card-body{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  padding:22px;
+}
+
+.card-body p{margin-top:10px;color:var(--muted)}
+
+.card-body .button{align-self:flex-start;margin-top:auto;transform:translateY(10px)}
+
+.extension-media{position:relative;background:#101e31}
+
+.extension-media img{
+  width:100%;
+  height:230px;
+  display:block;
+  object-fit:cover;
+}
+
+.extension-placeholder{
+  height:230px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#174d5c,#0e1d31 60%,#283361);
+  color:#c9f8ff;
+  font-size:54px;
+  font-weight:850;
+  letter-spacing:-.05em;
+}
+
+.published{
+  position:absolute;
+  top:13px;
+  right:13px;
+  padding:6px 9px;
+  border:1px solid rgba(98,216,232,.4);
+  border-radius:999px;
+  background:rgba(7,17,31,.88);
+  color:var(--cyan);
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.store-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:auto;
+  padding-top:18px;
+}
+
+.store-link{
+  padding:8px 11px;
+  border:1px solid rgba(98,216,232,.28);
+  border-radius:8px;
+  color:#bdeff5;
+  font-size:12px;
+  font-weight:750;
+  text-decoration:none;
+}
+
+.store-link:hover{border-color:var(--cyan);background:rgba(98,216,232,.06)}
+
+footer{
+  padding:42px 24px 54px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  text-align:center;
+}
+
+footer a{color:var(--cyan);text-decoration:none}
+
+@media(max-width:1000px){
+  .hero{grid-template-columns:1fr;gap:40px}
+  .hero-card{max-width:560px}
+  .interest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case-study{grid-template-columns:1fr}
+  .case-preview{min-height:440px}
+}
+
+@media(max-width:760px){
+  .section{padding:72px 18px}
+  .nav{padding:13px 18px}
+  .nav-links{gap:14px}
+  .nav-links a{font-size:12px}
+  .section-heading,.background-panel,.research-card,.publication{grid-template-columns:1fr;gap:20px}
+  .research-card,.publication{padding:24px}
+  .demo-grid,.extension-grid{grid-template-columns:1fr}
+  .group-heading{display:block}
+  .group-heading p{margin-top:10px}
+  .case-copy{padding:30px 24px}
+}
+
+@media(max-width:520px){
+  .nav-links a:first-child{display:none}
+  .hero{padding-top:78px}
+  h1{font-size:47px}
+  .interest-grid{grid-template-columns:1fr}
+  .hero-actions,.link-row{align-items:stretch;flex-direction:column}
+  .button{width:100%}
+  .case-preview{min-height:360px}
+  .demo-frame{height:260px}
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="#about">Bin Zeng <span>/ Ben</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="https://github.com/Ben-Tseng/" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="section hero" id="about">
+    <div class="hero-copy">
+      <p class="eyebrow">Independent researcher &amp; developer</p>
+      <h1>Hi, I’m Bin Zeng <span style="color:var(--cyan)">(Ben)</span>.</h1>
+      <p class="lead">
+        I am pursuing an <strong>M.S. in Computer Science at Georgia Tech (OMSCS)</strong>, specializing in Machine Learning. My work centers on <strong>AI decision-making under uncertainty, trustworthy agentic systems, and multi-agent collaboration</strong>.
+      </p>
+      <p class="lead" style="font-size:18px;color:var(--muted)">
+        My background spans industrial engineering, technology entrepreneurship, venture investment, and investigation workflows. These experiences motivate my interest in how intelligent systems combine incomplete evidence, reason about risk, and make decisions that people can understand and scrutinize.
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="#research">Explore research</a>
+        <a class="button secondary" href="#portfolio">View portfolio</a>
+        <a class="button secondary" href="https://github.com/Ben-Tseng/" target="_blank" rel="noopener noreferrer">GitHub projects</a>
+      </div>
+    </div>
+
+    <aside class="hero-card" aria-label="Current profile">
+      <div class="monogram" aria-hidden="true">BZ</div>
+      <ul class="fact-list">
+        <li><small>Current study</small><span>Georgia Tech OMSCS</span></li>
+        <li><small>Specialization</small><span>Machine Learning</span></li>
+        <li>
+          <small>Research focus</small>
+          <div class="focus-list">
+            <span>· General AI decision-making</span>
+            <span>· Multi-agent collaboration and strategic interaction</span>
+            <span>· Trustworthy and robust agentic AI</span>
+            <span>· Reasoning under uncertainty</span>
+            <span>· Human-AI collaboration</span>
+            <span>· Adaptive decision systems</span>
+          </div>
+        </li>
+        <li><small>Next direction</small><span>Fall 2027 PhD applications</span></li>
+      </ul>
+    </aside>
+  </section>
+
+  <section class="section" aria-labelledby="interests-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Research interests</p>
+        <h2 id="interests-title">Systems that reason, collaborate, and remain accountable.</h2>
+      </div>
+      <p>I am interested in intelligent systems whose decisions remain inspectable when evidence is incomplete, environments change, or other agents cannot be fully trusted.</p>
+    </div>
+
+    <div class="interest-grid">
+      <article class="interest-card">
+        <span class="number">01</span>
+        <h3>Multi-agent decision-making</h3>
+        <p>Coordination, strategic interaction, and the reliability of collective decisions.</p>
+      </article>
+      <article class="interest-card">
+        <span class="number">02</span>
+        <h3>Trustworthy &amp; secure AI</h3>
+        <p>Inter-agent authentication, adversarial influence, and safeguards for agentic systems.</p>
+      </article>
+      <article class="interest-card">
+        <span class="number">03</span>
+        <h3>Reasoning under uncertainty</h3>
+        <p>Structured expert knowledge, Bayesian reasoning, and interpretable decision support.</p>
+      </article>
+      <article class="interest-card">
+        <span class="number">04</span>
+        <h3>Human–AI collaboration</h3>
+        <p>Systems that support judgment while making assumptions and limitations explicit.</p>
+      </article>
+      <article class="interest-card">
+        <span class="number">05</span>
+        <h3>Sequential decisions</h3>
+        <p>Dynamic programming, reinforcement learning, and efficient policy evaluation.</p>
+      </article>
+    </div>
+
+    <div class="subsection background-panel">
+      <div>
+        <p class="eyebrow">Background</p>
+        <p>Before returning to formal computer science study, I worked in venture capital and technology investment and founded a decision-support software platform. My professional experience also includes seller investigation and verification at Amazon.</p>
+      </div>
+      <div class="direction-note">
+        <strong>Research direction</strong>
+        <p>I am preparing for Fall 2027 PhD applications, seeking to develop reliable AI systems that reason and act under uncertainty, collaborate effectively, and remain robust when information or other agents cannot be trusted.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="research" aria-labelledby="research-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Research experience</p>
+        <h2 id="research-title">Current work and selected studies.</h2>
+      </div>
+      <p>Research projects are labeled by status. Drafts and engineering studies are presented as work in progress rather than peer-reviewed or validated results.</p>
+    </div>
+
+    <div class="research-list">
+      <article class="research-card">
+        <div class="research-meta">
+          <span class="status">Draft completed · Preparing submission</span>
+          <p>Multi-Agent LLM Security</p>
+        </div>
+        <div class="research-body">
+          <h3>Predictability Is Exploitable</h3>
+          <p class="project-title">Attack Budgets and Inter-Agent Authentication in LLM Agent Collectives</p>
+          <p>Investigating how predictability, adversarial interventions, and authentication affect collective decisions in LLM agents. The initial manuscript is complete and is being prepared for submission in collaboration with Dr. Zhi-Qi Cheng, University of Washington Tacoma.</p>
+          <p class="caveat">Draft completed; preparing for submission. Not yet peer-reviewed.</p>
+          <div class="link-row">
+            <a class="button" href="https://github.com/Ben-Tseng/physics-of-agents/blob/attack-authentication/paper/manuscript.pdf" target="_blank" rel="noopener noreferrer">Draft manuscript</a>
+            <a class="button secondary" href="https://attackagent.vercel.app/" target="_blank" rel="noopener noreferrer">Article overview</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="research-card">
+        <div class="research-meta">
+          <span class="status">Work in progress</span>
+          <p>Expert Reasoning &amp; Uncertainty</p>
+        </div>
+        <div class="research-body">
+          <h3>Learning Expert Reasoning through Trustworthy Hybrid AI Systems</h3>
+          <p class="project-title">A Framework for High-Stakes Decision Making</p>
+          <p>Exploring how structured knowledge and expert reasoning can support interpretable AI decision-making under uncertainty. This work draws on my experience developing Zydsoft Cloud, using its clinical decision-support application as an initial application testbed.</p>
+          <p class="caveat">An initial manuscript has been prepared. Generalization beyond the initial setting remains a research question.</p>
+          <div class="link-row">
+            <a class="button secondary" href="https://c.zydsoft.cn/" target="_blank" rel="noopener noreferrer">Zydsoft Cloud</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="research-card">
+        <div class="research-meta">
+          <span class="status">Independent reproduction</span>
+          <p>Sequential Decision-Making</p>
+        </div>
+        <div class="research-body">
+          <h3>GPU-Accelerated Inventory Optimization</h3>
+          <p>An independent reproduction and critical analysis of a published approach to perishable-inventory control using GPU-accelerated value iteration. The project examines implementation choices, computational performance, and reproducibility.</p>
+          <p class="caveat">This is not a claim of an original inventory-control algorithm.</p>
+          <div class="link-row">
+            <a class="button secondary" href="https://repoinventorygpu.vercel.app/" target="_blank" rel="noopener noreferrer">Technical report</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <aside class="publication">
+      <div class="research-meta">
+        <span class="status">Earlier publication</span>
+        <p>Inventory systems &amp; simulation</p>
+      </div>
+      <div>
+        <p>Xu, X., Zeng, B., Yu, Y., &amp; Huang, L. (2009). <em>Simulation Study of a Vendor-Managed Inventory Model with Manufacturing Delays.</em> Industrial Engineering and Management, 2009(1), 53–61.</p>
+        <div class="link-row">
+          <a class="button secondary" href="https://doi.org/10.3969/j.issn.1007-5429.2009.01.013" target="_blank" rel="noopener noreferrer">View DOI record</a>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section" id="portfolio" aria-labelledby="portfolio-title">
+    <div class="section-heading portfolio-intro">
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h2 id="portfolio-title">Research ideas translated into working systems.</h2>
+      </div>
+      <p>My portfolio spans a deployed decision-support platform, interactive research communication, practical web tools, and browser extensions.</p>
+    </div>
+
+    <article class="case-study">
+      <iframe class="case-preview" src="https://c.zydsoft.cn/" title="Zydsoft Cloud live preview" loading="lazy"></iframe>
+      <div class="case-copy">
+        <span class="case-label">Commercial success case</span>
+        <h3>Zydsoft Cloud</h3>
+        <p>A deployed decision-support software platform founded and developed from domain workflows into a working product. Its clinical decision-support application also serves as the initial application testbed for my research on structured expert reasoning and trustworthy hybrid AI.</p>
+        <p class="case-note">The product is presented here as a commercial software case; broader research generalization remains under study.</p>
+        <div class="link-row">
+          <a class="button" href="https://c.zydsoft.cn/" target="_blank" rel="noopener noreferrer">Open Zydsoft Cloud</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="portfolio-group">
+      <div class="group-heading">
+        <h3>Selected software</h3>
+        <p>Engineering projects and public demos spanning financial decision support, health, learning, and everyday utilities.</p>
+      </div>
+      <div class="demo-grid">
+        <article class="demo-card">
+          <iframe class="demo-frame" src="https://gentle-healing-phi.vercel.app/" title="Gentle Healing live demo" loading="lazy"></iframe>
+          <div class="card-body">
+            <h3>Gentle Healing</h3>
+            <p>A holistic health experience combining Eastern dietary therapy and massage with modern science.</p>
+            <a class="button secondary" href="https://gentle-healing-phi.vercel.app/" target="_blank" rel="noopener noreferrer">Open live demo</a>
+          </div>
+        </article>
+        <article class="demo-card">
+          <iframe class="demo-frame" src="https://ben-tseng.github.io/MacroSignal/" title="MacroSignal live demo" loading="lazy"></iframe>
+          <div class="card-body">
+            <h3>MacroSignal</h3>
+            <p>A FRED-powered dashboard for organizing macroeconomic indicators and monitoring U.S. inflation risk. This is an exploratory engineering project, not validated forecasting performance.</p>
+            <a class="button secondary" href="https://ben-tseng.github.io/MacroSignal/" target="_blank" rel="noopener noreferrer">Open live demo</a>
+          </div>
+        </article>
+        <article class="demo-card">
+          <div class="demo-placeholder" aria-hidden="true"><strong>AS</strong><span>Quantitative signal engine</span></div>
+          <div class="card-body">
+            <h3>AlphaShort</h3>
+            <p>A software project combining price positioning, momentum, crowding risk, volatility regimes, and configurable historical backtesting. It is not evidence of validated forecasting performance.</p>
+            <a class="button secondary" href="https://github.com/Ben-Tseng/AlphaShort" target="_blank" rel="noopener noreferrer">View project</a>
+          </div>
+        </article>
+        <article class="demo-card">
+          <iframe class="demo-frame" src="https://typing-adventure-chi.vercel.app/" title="Typing Adventure live demo" loading="lazy"></iframe>
+          <div class="card-body">
+            <h3>Typing Adventure</h3>
+            <p>A game-based typing practice experience that turns keyboard learning into an adventure.</p>
+            <a class="button secondary" href="https://typing-adventure-chi.vercel.app/" target="_blank" rel="noopener noreferrer">Open live demo</a>
+          </div>
+        </article>
+        <article class="demo-card">
+          <iframe class="demo-frame" src="https://world-time-zone-lite-u4j5.vercel.app/" title="World Time Zone Lite live demo" loading="lazy"></iframe>
+          <div class="card-body">
+            <h3>World Time Zone Lite</h3>
+            <p>A lightweight world-time comparison tool with multi-city timelines and real-time updates.</p>
+            <a class="button secondary" href="https://world-time-zone-lite-u4j5.vercel.app/" target="_blank" rel="noopener noreferrer">Open live demo</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="portfolio-group">
+      <div class="group-heading">
+        <h3>Published browser extensions</h3>
+        <p>Eleven focused tools published for Firefox, with selected cross-platform releases on the Chrome Web Store. Animated projects are shown first.</p>
+      </div>
+      <div class="extension-grid">
+        <article class="extension-card">
+          <div class="extension-media"><img src="https://raw.githubusercontent.com/Ben-Tseng/URL-replacer/main/Demo.gif" alt="Simple URL Replacer animation" loading="lazy"><span class="published">Published</span></div>
+          <div class="card-body"><h3>Simple URL Replacer</h3><p>Build a new URL from selected text and a configurable template.</p><div class="store-links"><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/simple-url-replacer/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a></div></div>
+        </article>
+        <article class="extension-card">
+          <div class="extension-media"><img src="https://raw.githubusercontent.com/Ben-Tseng/URL-Extractor/main/Demo_URL_Extract.gif" alt="Simple URL Extractor animation" loading="lazy"><span class="published">Published</span></div>
+          <div class="card-body"><h3>Simple URL Extractor</h3><p>Extract URLs from selected text and quickly open one or multiple links.</p><div class="store-links"><a class="store-link" href="https://chromewebstore.google.com/detail/simple-url-extractor/ohpfhjekiacmjkjbdmmicpkkkdpdjeig" target="_blank" rel="noopener noreferrer">Chrome</a><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/simple-url-extractor/" target="_blank" rel="noopener noreferrer">Firefox</a></div></div>
+        </article>
+        <article class="extension-card">
+          <div class="extension-media"><img src="https://raw.githubusercontent.com/Ben-Tseng/Editable-Template-Insert-Tree/main/Demo_TemplateTree.gif" alt="TemplateTree animation" loading="lazy"><span class="published">Published</span></div>
+          <div class="card-body"><h3>TemplateTree</h3><p>Manage reusable templates in a tree and insert them into web forms.</p><div class="store-links"><a class="store-link" href="https://chromewebstore.google.com/detail/templatetree/lgnjggegapjlkoaadecccmlahpppbjdd" target="_blank" rel="noopener noreferrer">Chrome</a><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/templatetree/" target="_blank" rel="noopener noreferrer">Firefox</a></div></div>
+        </article>
+        <article class="extension-card">
+          <div class="extension-media"><img src="https://raw.githubusercontent.com/Ben-Tseng/Keyword-Reminder/main/Demo_Keyword_Reminder.gif" alt="Keyword Reminder animation" loading="lazy"><span class="published">Published</span></div>
+          <div class="card-body"><h3>Keyword Reminder</h3><p>Show local dictionary reminders when matching text is selected.</p><div class="store-links"><a class="store-link" href="https://chromewebstore.google.com/detail/%E5%85%B3%E9%94%AE%E8%AF%8D%E6%8F%90%E7%A4%BA%E5%99%A8/pekbkkgfmmdffkcimpmnineecafaaldd" target="_blank" rel="noopener noreferrer">Chrome</a><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/keyword-reminder/" target="_blank" rel="noopener noreferrer">Firefox</a></div></div>
+        </article>
+        <article class="extension-card">
+          <div class="extension-media"><img src="https://raw.githubusercontent.com/Ben-Tseng/The-simplest-OCR/main/The%20simplest%20OCR%20mid.gif" alt="Simple OCR animation" loading="lazy"><span class="published">Published</span></div>
+          <div class="card-body"><h3>Simple OCR</h3><p>Select a webpage area and recognize uppercase letters and numbers.</p><div class="store-links"><a class="store-link" href="https://chromewebstore.google.com/detail/%E6%9E%81%E7%AE%80ocr/mgcefmpadhffnppnknghdkeliidnpmnm" target="_blank" rel="noopener noreferrer">Chrome</a><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/simple-ocr/" target="_blank" rel="noopener noreferrer">Firefox</a></div></div>
+        </article>
+        <article class="extension-card">
+          <div class="extension-media"><img src="https://raw.githubusercontent.com/Ben-Tseng/A-click/main/Demo%20for%20A_click.gif" alt="A Click animation" loading="lazy"><span class="published">Published</span></div>
+          <div class="card-body"><h3>A Click / Auto Select First</h3><p>Select the first checkbox or radio option in each group.</p><div class="store-links"><a class="store-link" href="https://chromewebstore.google.com/detail/auto-select-first/pngimbifkcibcinlegmnehcajnhhajkm" target="_blank" rel="noopener noreferrer">Chrome</a><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/a-click/" target="_blank" rel="noopener noreferrer">Firefox</a></div></div>
+        </article>
+        <article class="extension-card">
+          <div class="extension-media"><img src="https://raw.githubusercontent.com/Ben-Tseng/SIV-ID-Verification/main/tool%20show.gif" alt="SIV ID Verificator animation" loading="lazy"><span class="published">Published</span></div>
+          <div class="card-body"><h3>SIV ID Verificator</h3><p>Offline validation support for MRZ, Hong Kong ID, and Taiwan ID formats.</p><div class="store-links"><a class="store-link" href="https://chromewebstore.google.com/detail/lightweight-kyc-validator/ojmejpmlpghbdnkgafipadelkocajlgb" target="_blank" rel="noopener noreferrer">Chrome</a><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/siv-id-verificator/" target="_blank" rel="noopener noreferrer">Firefox</a></div></div>
+        </article>
+        <article class="extension-card">
+          <div class="extension-media"><img src="https://raw.githubusercontent.com/Ben-Tseng/Trim-copy/main/Trim_copy_Demo.gif" alt="Trim Copy animation" loading="lazy"><span class="published">Published</span></div>
+          <div class="card-body"><h3>Trim Copy</h3><p>Copy selected text while removing leading and trailing whitespace.</p><div class="store-links"><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/trim-copy/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a></div></div>
+        </article>
+        <article class="extension-card">
+          <div class="extension-media"><img src="https://raw.githubusercontent.com/Ben-Tseng/URL-replacer/main/Pro%20Firefox%20Version/128.png" alt="URL Replacer Pro icon" loading="lazy"><span class="published">Published</span></div>
+          <div class="card-body"><h3>URL Replacer Pro</h3><p>Apply one token across up to ten URL templates.</p><div class="store-links"><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/url-replacer-pro/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a></div></div>
+        </article>
+        <article class="extension-card">
+          <div class="extension-media"><div class="extension-placeholder" aria-hidden="true">MM</div><span class="published">Published</span></div>
+          <div class="card-body"><h3>Simple Mind Map</h3><p>An editable minimal mind map with notes and local saving.</p><div class="store-links"><a class="store-link" href="https://chromewebstore.google.com/detail/%E6%9E%81%E7%AE%80%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/cehdhiebblbankbhbpcnhpeobbkdbelo" target="_blank" rel="noopener noreferrer">Chrome</a><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/simple-mind-map/" target="_blank" rel="noopener noreferrer">Firefox</a></div></div>
+        </article>
+        <article class="extension-card">
+          <div class="extension-media"><div class="extension-placeholder" aria-hidden="true">TR</div><span class="published">Published</span></div>
+          <div class="card-body"><h3>Cross-Tab Keyword Clicker</h3><p>Scan tabs for keywords and click matching links or buttons.</p><div class="store-links"><a class="store-link" href="https://addons.mozilla.org/en-US/firefox/addon/cross-tab-keyword-clicker/" target="_blank" rel="noopener noreferrer">Firefox Add-ons</a></div></div>
+        </article>
+      </div>
+      <div class="link-row">
+        <a class="button secondary" href="https://addons.mozilla.org/en-US/firefox/user/19631087/" target="_blank" rel="noopener noreferrer">View all Firefox add-ons</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Bin Zeng (Ben) · Independent researcher and developer · <a href="https://github.com/Ben-Tseng/" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+</footer>
+</body>
+</html>
